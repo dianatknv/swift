@@ -1,11 +1,3 @@
-//
-//  TaskCell.swift
-//  todoList
-//
-//  Created by Riley Norris on 1/7/18.
-//  Copyright © 2018 Riley Norris. All rights reserved.
-//
-
 import UIKit
 
 protocol CheckBox {
@@ -24,6 +16,8 @@ class TaskCell: UITableViewCell {
     
     @IBOutlet weak var checkBoxOutlet: UIButton!
     @IBOutlet weak var taskNameLabel: UILabel!
+    @IBOutlet weak var dateTimeLabel: UILabel!
+    
     
     var indexP: Int?
     var delegate: CheckBox?

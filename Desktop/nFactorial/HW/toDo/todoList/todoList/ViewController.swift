@@ -1,18 +1,19 @@
-//
-//  ViewController.swift
-//  todoList
-//
-//  Created by Riley Norris on 1/6/18.
-//  Copyright © 2018 Riley Norris. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask, CheckBox {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask, CheckBox{
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+  
+
     
     @IBOutlet weak var tableView: UITableView!
     
     var tasks: [Tasks] = []
+    var dates: [Dates] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
@@ -33,14 +34,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     
-    
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
         
         cell.taskNameLabel.text = tasks[indexPath.row].name
+        //cell.dateTimeLabel.text = dateTime
         
         if tasks[indexPath.row].checked {
             cell.checkBoxOutlet.setBackgroundImage(#imageLiteral(resourceName: "checkBoxFILLED "), for: UIControlState.normal)
@@ -51,6 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.delegate = self
         cell.tasks = tasks
         cell.indexP = indexPath.row
+     //   cell.dates = dates
         
         return cell
     }
@@ -70,7 +69,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadRows(at: [IndexPath(row: index!, section: 0)], with: UITableViewRowAnimation.none)
     }
 }
-
+class Dates{
+    
+}
 class Tasks {
     var name = ""
     var checked = false

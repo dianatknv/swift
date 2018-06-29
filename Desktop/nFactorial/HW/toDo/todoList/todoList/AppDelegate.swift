@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  todoList
-//
-//  Created by Riley Norris on 1/6/18.
-//  Copyright © 2018 Riley Norris. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
